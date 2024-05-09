@@ -1,15 +1,17 @@
-hdfs namenode -format force
-
-start-dfs.cmd
-
-start-yarn.cmd
-
-hadoop fs -mkdir /input1
-
-hadoop fs -put c:/data.txt /input1
-
-hadoop fs -cat /input1/data.txt
-
-hadoop jar C:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /input1 /out
-
-hadoop fs -cat /out/*
+1. Open cmd as administrator 
+2. hdfs namenode -format 
+3. Y/N option la Y, option nai aala tr-> hdfs namenode -format force
+4. cd/
+5. cd hadoop
+6. cd sbin
+7. start-dfs.cmd
+8. start-yarn.cmd
+9. Create a text file data.txt with random words and copy to C drive
+10. hadoop fs -mkdir /input
+11. hadoop fs -put /data.txt /input
+12. hadoop fs -cat /input/data.txt
+13. Go to path C/hadoop/share/hadoop/map-reduce/ and copy filename and path of last example file, replace all '\' with '/'. The filepath should be C:/hadoop/share/hadoop/mapreduce/hadoop-
+mapreduce-examples-3.3.6
+14. hadoop jar <filepath>.jar wordcount /input /out
+15. hadoop fs -cat /out/*
+16. Go to browser and search localhost:9870, goto utilities, browse directories and open 'out', part-..., click 'head the file'
